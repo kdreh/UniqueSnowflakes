@@ -1,0 +1,3 @@
+/Users/dre/Development/c-workspace/UniqueSnowflakes/cmake-build-debug/CMakeFiles/UniqueSnowflakes.dir
+/Users/dre/Development/c-workspace/UniqueSnowflakes/cmake-build-debug/CMakeFiles/edit_cache.dir
+/Users/dre/Development/c-workspace/UniqueSnowflakes/cmake-build-debug/CMakeFiles/rebuild_cache.dir
