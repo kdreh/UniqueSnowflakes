@@ -33,7 +33,6 @@ int identical_left(int snow1[], int snow2[], int start) {
     }
     return 1;
 }
-
 int main(void) {
    int a[5] = {1,2,0,5,4};
     identify_identical(a,5);
