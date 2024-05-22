@@ -20,6 +20,19 @@ int identical_right(int snow1[], int snow2[], int start) {
     }
     return 1;
 }
+int identical_left(int snow1[], int snow2[], int start) {
+    int snow2_index;
+    for(int offset=0; offset<6; offset++) {
+        snow2_index=start-offset;
+        if(snow2_index<0) {
+            snow2_index=snow2_index+6;
+        }
+        if(snow1[offset] != snow2[snow2_index]) {
+            return 0;
+        }
+    }
+    return 1;
+}
 
 int main(void) {
    int a[5] = {1,2,0,5,4};
