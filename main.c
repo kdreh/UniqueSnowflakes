@@ -12,6 +12,15 @@ void identify_identical(int value[], int n) {
     printf("No two integers are alike.\n");
 }
 
+int identical_right(int snow1[], int snow2[], int start) {
+    for(int offset=0; offset<6; offset++) {
+        if(snow1[offset] != snow2[(start + offset)%6]) {
+            return 0;
+        }
+    }
+    return 1;
+}
+
 int main(void) {
    int a[5] = {1,2,0,5,4};
     identify_identical(a,5);
