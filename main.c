@@ -1,17 +1,5 @@
 #include <stdio.h>
 
-void identify_identical(int value[], int n) {
-    for(int i=0; i<n; i++) {
-        for(int j=i+1; j<n; j++) {
-            if(value[i] == value[j]) {
-                printf("Twin integers found.\n");
-                return;
-            }
-        }
-    }
-    printf("No two integers are alike.\n");
-}
-
 int identical_right(int snow1[], int snow2[], int start) {
     for(int offset=0; offset<6; offset++) {
         if(snow1[offset] != snow2[(start + offset)%6]) {
@@ -20,6 +8,7 @@ int identical_right(int snow1[], int snow2[], int start) {
     }
     return 1;
 }
+
 int identical_left(int snow1[], int snow2[], int start) {
     int snow2_index;
     for(int offset=0; offset<6; offset++) {
@@ -33,9 +22,36 @@ int identical_left(int snow1[], int snow2[], int start) {
     }
     return 1;
 }
+int are_identical(int snow1[], int snow2[]) {
+    for(int start=0; start<6; start++) {
+        if(identical_left(snow1, snow2, start))
+            return 1;
+        if(identical_right(snow1, snow2, start))
+            return 1;
+    }
+    return 0;
+}
+
+void identify_identical(int snowflakes[][6], int n) {
+    for(int i=0; i<n; i++) {
+        for(int j= i+1; j<n; j++) {
+            if(are_identical(snowflakes[i], snowflakes[j])) {
+                printf("Twin snowflakes found.\n");
+            }
+        }
+    }
+    printf("No twin snowflakes are alike.\n");
+}
+
 
 int main(void) {
-   int a[5] = {1,2,0,5,4};
-    identify_identical(a,5);
+#define SIZE 100000
+    static int snowflakes[SIZE][6];
+    int n;
+    scanf("%d", &n);
+    for(int i = 0; i<n; i++)
+        for(int j = 0; j<n; j++)
+            scanf("%d", &snowflakes[i][j]);
+    identify_identical(snowflakes,n);
     return 0;
 }
